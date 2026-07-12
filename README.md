@@ -1,12 +1,22 @@
 # pixel-Game
 
-Ein kleines Pixel-Adventure für den Browser.
+Ein Pixel-Adventure für PC mit **Unreal Engine 5 (C++)**.
 
-## Starten
+## Projektinhalt
 
-Öffne `/home/runner/work/pixel-Game/pixel-Game/index.html` in einem Browser.
+- Unreal Projektdatei: `/home/runner/work/pixel-Game/pixel-Game/PixelAdventure.uproject`
+- C++ Modul: `/home/runner/work/pixel-Game/pixel-Game/Source/PixelAdventure`
+- Eingaben: `/home/runner/work/pixel-Game/pixel-Game/Config/DefaultInput.ini`
 
-## Steuerung
+## Starten (Unreal Engine)
 
-- **WASD** oder **Pfeiltasten**: Bewegen
-- **E**: Mit dem NPC interagieren, wenn du direkt daneben stehst
+1. Unreal Engine 5.4 installieren.
+2. `PixelAdventure.uproject` mit Unreal öffnen.
+3. Falls abgefragt, Projektdateien generieren und C++ kompilieren.
+4. Eine Map unter `/Game/Maps/AdventureMap` anlegen und speichern.
+5. Play drücken.
+
+## Steuerung im Spiel
+
+- **WASD / Pfeiltasten**: Bewegen
+- **E**: Interaktion auslösen
