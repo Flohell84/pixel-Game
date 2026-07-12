@@ -2,6 +2,7 @@
 #include "Game/PANpcActor.h"
 #include "Game/PAPixelCharacter.h"
 #include "Kismet/GameplayStatics.h"
+#include "Sound/SoundBase.h"
 #include "World/PAPixelWorldActor.h"
 
 APAAdventureGameModeBase::APAAdventureGameModeBase()
@@ -13,6 +14,11 @@ APAAdventureGameModeBase::APAAdventureGameModeBase()
 void APAAdventureGameModeBase::BeginPlay()
 {
     Super::BeginPlay();
+
+    if (IsValid(GameMusic))
+    {
+        UGameplayStatics::SpawnSound2D(this, GameMusic);
+    }
 
     if (!PixelWorldClass)
     {

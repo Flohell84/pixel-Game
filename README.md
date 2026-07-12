@@ -15,6 +15,7 @@ Ein Pixel-Adventure für PC mit **Unreal Engine 5 (C++)**.
 - NPC (Dorfältester) mit Interaktion
 - Quest-Logik: Ziel ist das Gespräch mit dem Dorfältesten
 - Quest-/Statusmeldungen per Ingame-Textausgabe
+- Konfigurierbare Spielmusik beim Start (über den GameMode)
 
 ## Starten (Unreal Engine)
 
@@ -22,7 +23,8 @@ Ein Pixel-Adventure für PC mit **Unreal Engine 5 (C++)**.
 2. `PixelAdventure.uproject` mit Unreal öffnen.
 3. Falls abgefragt, Projektdateien generieren und C++ kompilieren.
 4. Eine leere Map unter `/Game/Maps/AdventureMap` anlegen und speichern.
-5. Play drücken (Welt und NPC werden beim Start durch den GameMode erzeugt).
+5. Im aktiven GameMode (`PAAdventureGameModeBase`) optional ein `Game Music`-Asset setzen.
+6. Play drücken (Welt, NPC und ggf. Musik werden beim Start durch den GameMode erzeugt).
 
 ## Steuerung im Spiel
 

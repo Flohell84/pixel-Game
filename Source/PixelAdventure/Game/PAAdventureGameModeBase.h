@@ -5,6 +5,7 @@
 #include "PAAdventureGameModeBase.generated.h"
 
 class APAPixelWorldActor;
+class USoundBase;
 
 UCLASS()
 class PIXELADVENTURE_API APAAdventureGameModeBase : public AGameModeBase
@@ -20,4 +21,7 @@ protected:
 private:
     UPROPERTY(EditDefaultsOnly, Category="Adventure")
     TSubclassOf<APAPixelWorldActor> PixelWorldClass;
+
+    UPROPERTY(EditDefaultsOnly, Category="Audio")
+    TObjectPtr<USoundBase> GameMusic;
 };
