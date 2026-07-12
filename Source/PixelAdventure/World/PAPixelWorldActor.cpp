@@ -1,5 +1,6 @@
 #include "World/PAPixelWorldActor.h"
 #include "Components/InstancedStaticMeshComponent.h"
+#include "Components/SceneComponent.h"
 #include "UObject/ConstructorHelpers.h"
 
 APAPixelWorldActor::APAPixelWorldActor()
