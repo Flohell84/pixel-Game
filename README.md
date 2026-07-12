@@ -8,13 +8,21 @@ Ein Pixel-Adventure für PC mit **Unreal Engine 5 (C++)**.
 - C++ Modul: `/home/runner/work/pixel-Game/pixel-Game/Source/PixelAdventure`
 - Eingaben: `/home/runner/work/pixel-Game/pixel-Game/Config/DefaultInput.ini`
 
+## Bereits umgesetzt
+
+- Prozedural erzeugte Pixel-Map aus einem Tile-Layout (Wände, Boden, Bäume)
+- Spielbarer Character mit Top-Down-Kamera und Bewegung
+- NPC (Dorfältester) mit Interaktion
+- Quest-Logik: Ziel ist das Gespräch mit dem Dorfältesten
+- Quest-/Statusmeldungen per Ingame-Textausgabe
+
 ## Starten (Unreal Engine)
 
 1. Unreal Engine 5.4 installieren.
 2. `PixelAdventure.uproject` mit Unreal öffnen.
 3. Falls abgefragt, Projektdateien generieren und C++ kompilieren.
-4. Eine Map unter `/Game/Maps/AdventureMap` anlegen und speichern.
-5. Play drücken.
+4. Eine leere Map unter `/Game/Maps/AdventureMap` anlegen und speichern.
+5. Play drücken (Welt und NPC werden beim Start durch den GameMode erzeugt).
 
 ## Steuerung im Spiel
 
