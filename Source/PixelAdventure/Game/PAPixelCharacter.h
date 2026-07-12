@@ -15,6 +15,8 @@ public:
     APAPixelCharacter();
     UPAQuestComponent* GetQuestComponent() const;
     void ShowMessage(const FString& Text) const;
+    void ReceiveDamage(float DamageAmount, const FString& DamageSourceName);
+    bool IsAlive() const;
 
 protected:
     virtual void BeginPlay() override;
@@ -24,6 +26,7 @@ private:
     void MoveForward(float Value);
     void MoveRight(float Value);
     void Interact();
+    void Attack();
     AActor* FindInteractableActor() const;
 
     UPROPERTY(VisibleAnywhere, Category="Quest")
@@ -31,4 +34,18 @@ private:
 
     UPROPERTY(EditDefaultsOnly, Category="Interaction")
     float InteractionRadius;
+
+    UPROPERTY(EditDefaultsOnly, Category="Combat")
+    float AttackRadius;
+
+    UPROPERTY(EditDefaultsOnly, Category="Combat")
+    float AttackDamage;
+
+    UPROPERTY(EditDefaultsOnly, Category="Combat")
+    float EnemyCounterDamage;
+
+    UPROPERTY(EditDefaultsOnly, Category="Combat")
+    float MaxHealth;
+
+    float CurrentHealth;
 };

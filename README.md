@@ -13,6 +13,8 @@ Ein Pixel-Adventure für PC mit **Unreal Engine 5 (C++)**.
 - Prozedural erzeugte Pixel-Map aus einem Tile-Layout (Wände, Boden, Bäume)
 - Spielbarer Character mit Top-Down-Kamera und Bewegung
 - NPC (Dorfältester) mit Interaktion
+- Mehrere Bewohner-NPCs und Gegner-NPCs
+- Einfaches Kampfsystem (Spielerangriff + Gegentreffer)
 - Quest-Logik: Ziel ist das Gespräch mit dem Dorfältesten
 - Quest-/Statusmeldungen per Ingame-Textausgabe
 - Konfigurierbare Spielmusik beim Start (über den GameMode)
@@ -30,3 +32,4 @@ Ein Pixel-Adventure für PC mit **Unreal Engine 5 (C++)**.
 
 - **WASD / Pfeiltasten**: Bewegen
 - **E**: Interaktion auslösen
+- **Leertaste**: Angriff auf Gegner in Reichweite

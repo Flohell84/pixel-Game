@@ -33,13 +33,13 @@ APAPixelWorldActor::APAPixelWorldActor()
 
     TileMap = {
         TEXT("####################"),
-        TEXT("#..T......##......N#"),
+        TEXT("#..T....V.##.....VN#"),
         TEXT("#.####....##..###..#"),
-        TEXT("#......T..........##"),
-        TEXT("#..#######..###....#"),
+        TEXT("#...G..T..........##"),
+        TEXT("#..#######..###.G..#"),
         TEXT("#...........###....#"),
         TEXT("#.######...........#"),
-        TEXT("#..............#####"),
+        TEXT("#....V.........#####"),
         TEXT("#..S...............#"),
         TEXT("####################")
     };
@@ -61,6 +61,25 @@ FVector APAPixelWorldActor::GetPlayerSpawnLocation() const
 {
     const FIntPoint PlayerTile = FindSymbol(TEXT('S'));
     return TileToWorld(PlayerTile.X, PlayerTile.Y, TileSize * 0.6f);
+}
+
+TArray<FVector> APAPixelWorldActor::GetSpawnLocationsForSymbol(TCHAR Symbol, float ZOffset) const
+{
+    TArray<FVector> SpawnLocations;
+
+    for (int32 Y = 0; Y < TileMap.Num(); ++Y)
+    {
+        const FString& Row = TileMap[Y];
+        for (int32 X = 0; X < Row.Len(); ++X)
+        {
+            if (Row[X] == Symbol)
+            {
+                SpawnLocations.Add(TileToWorld(X, Y, ZOffset));
+            }
+        }
+    }
+
+    return SpawnLocations;
 }
 
 void APAPixelWorldActor::BuildWorld()

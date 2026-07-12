@@ -19,6 +19,7 @@ public:
 
     FVector GetNpcSpawnLocation() const;
     FVector GetPlayerSpawnLocation() const;
+    TArray<FVector> GetSpawnLocationsForSymbol(TCHAR Symbol, float ZOffset = 0.0f) const;
 
 private:
     void BuildWorld();
