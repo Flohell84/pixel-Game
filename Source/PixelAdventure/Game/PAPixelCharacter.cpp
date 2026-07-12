@@ -6,6 +6,7 @@
 #include "Engine/World.h"
 #include "Game/PANpcActor.h"
 #include "GameFramework/CharacterMovementComponent.h"
+#include "GameFramework/PlayerController.h"
 #include "GameFramework/SpringArmComponent.h"
 #include "Interaction/PAInteractable.h"
 #include "Kismet/KismetSystemLibrary.h"
@@ -179,32 +180,6 @@ AActor* APAPixelCharacter::FindInteractableActor() const
         return nullptr;
     }
 
-    void APAPixelCharacter::ReceiveDamage(float DamageAmount, const FString& DamageSourceName)
-    {
-        if (!IsAlive() || DamageAmount <= 0.0f)
-        {
-            return;
-        }
-
-        CurrentHealth = FMath::Clamp(CurrentHealth - DamageAmount, 0.0f, MaxHealth);
-        ShowMessage(FString::Printf(TEXT("%s trifft dich! Leben: %.0f"), *DamageSourceName, CurrentHealth));
-
-        if (CurrentHealth <= 0.0f)
-        {
-            ShowMessage(TEXT("Du wurdest besiegt!"));
-            GetCharacterMovement()->DisableMovement();
-            if (APlayerController* PlayerController = Cast<APlayerController>(GetController()))
-            {
-                DisableInput(PlayerController);
-            }
-        }
-    }
-
-    bool APAPixelCharacter::IsAlive() const
-    {
-        return CurrentHealth > 0.0f;
-    }
-
     TArray<FOverlapResult> OverlapResults;
     FCollisionQueryParams QueryParams(SCENE_QUERY_STAT(PAInteractTrace), false, this);
     const FCollisionObjectQueryParams ObjectParams(FCollisionObjectQueryParams::AllDynamicObjects);
@@ -232,4 +207,30 @@ AActor* APAPixelCharacter::FindInteractableActor() const
     }
 
     return nullptr;
+}
+
+void APAPixelCharacter::ReceiveDamage(float DamageAmount, const FString& DamageSourceName)
+{
+    if (!IsAlive() || DamageAmount <= 0.0f)
+    {
+        return;
+    }
+
+    CurrentHealth = FMath::Clamp(CurrentHealth - DamageAmount, 0.0f, MaxHealth);
+    ShowMessage(FString::Printf(TEXT("%s trifft dich! Leben: %.0f"), *DamageSourceName, CurrentHealth));
+
+    if (CurrentHealth <= 0.0f)
+    {
+        ShowMessage(TEXT("Du wurdest besiegt!"));
+        GetCharacterMovement()->DisableMovement();
+        if (APlayerController* PlayerController = Cast<APlayerController>(GetController()))
+        {
+            DisableInput(PlayerController);
+        }
+    }
+}
+
+bool APAPixelCharacter::IsAlive() const
+{
+    return CurrentHealth > 0.0f;
 }
