@@ -1,0 +1,13 @@
+{
+  "FileVersion": 3,
+  "EngineAssociation": "5.4",
+  "Category": "",
+  "Description": "Pixel Adventure PC game scaffold",
+  "Modules": [
+    {
+      "Name": "PixelAdventure",
+      "Type": "Runtime",
+      "LoadingPhase": "Default"
+    }
+  ]
+}
